@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct detailNoteView: View {
+    var note: Note
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack{
+                Text("\(note.content)")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .frame(width: 350, height:650)
+                    .background(Color(hex:"#f2f2f7"))
+                    .cornerRadius(10)
+            }
+            .navigationTitle("\(note.title)")
+        }
     }
 }
 
 #Preview {
-    detailNoteView()
+    detailNoteView(note: Note(title:"",content:""))
 }

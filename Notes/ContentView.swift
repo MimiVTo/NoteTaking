@@ -15,27 +15,38 @@ struct ContentView: View {
         NavigationView{
 
             VStack{
-                if arrayOfNotes.isEmpty{
-                    Spacer()
-                }
-                else{
-                    List{
-                        ForEach(arrayOfNotes.indices, id: \.self){i in
-                            Text("\(arrayOfNotes[i].title)\n\(arrayOfNotes[i].content)")
+                VStack{
+                    if arrayOfNotes.isEmpty{
+                        Spacer()
+                    }
+                    else{
+                        List{
+                            ForEach(arrayOfNotes.indices, id: \.self){i in
+                                NavigationLink(destination: {
+                                    detailNoteView(note: arrayOfNotes[i])
+                                }){
+                                    Text("\(arrayOfNotes[i].title)\n\(arrayOfNotes[i].content)")
+                                }
+                            }
+                
+                            .onDelete(perform: deleteOne)
                         }
-                        .onDelete(perform: deleteOne)
                     }
                 }
-                NavigationLink(destination:{
-                    NewNoteView(arrayOfNotes:$arrayOfNotes)
-                }){
-                    Text("Add Task")
-                        .font(.title)
-                        .padding()
-                        .frame(width:500, height:100)
-                        .background(.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                VStack{
+                    Spacer()
+                    NavigationLink(destination:{
+                        NewNoteView(arrayOfNotes:$arrayOfNotes)
+                    }){
+                        Text("Add Task")
+                            .padding()
+                            .foregroundColor(.white)
+                            .font(.title)
+                            .frame(width:500, height:100)
+                            .background(.blue)
+                            .cornerRadius(10)
+                    }
+                    .background(.blue)
                 }
             }
             .navigationTitle("Notes")
