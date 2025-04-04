@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct detailNoteView: View {
+    //variable that holds the note thats connected to the struct
     var note: Note
     var body: some View {
 //        NavigationView{
             VStack{
+                //The inside content of the note
                 Text("\(note.content)")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .padding()
@@ -19,6 +21,7 @@ struct detailNoteView: View {
                     .background(Color(hex:"#f2f2f7"))
                     .cornerRadius(10)
             }
+        //Title of the note
             .navigationTitle("\(note.title)")
 //        }
     }
