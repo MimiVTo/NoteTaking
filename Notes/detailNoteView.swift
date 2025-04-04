@@ -10,17 +10,17 @@ import SwiftUI
 struct detailNoteView: View {
     var note: Note
     var body: some View {
-        NavigationView{
+//        NavigationView{
             VStack{
                 Text("\(note.content)")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .padding()
-                    .frame(width: 350, height:650)
+                    .frame(width: 350, height:600, alignment: .topLeading)
                     .background(Color(hex:"#f2f2f7"))
                     .cornerRadius(10)
             }
             .navigationTitle("\(note.title)")
-        }
+//        }
     }
 }
 

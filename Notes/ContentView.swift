@@ -17,7 +17,7 @@ struct ContentView: View {
             VStack{
                 VStack{
                     if arrayOfNotes.isEmpty{
-                        Spacer()
+
                     }
                     else{
                         List{

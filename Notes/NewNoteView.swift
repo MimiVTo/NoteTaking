@@ -18,8 +18,8 @@ struct NewNoteView: View {
     @State var note: String = ""
 
     var body: some View{
-
-        NavigationView{
+//
+//        NavigationView{
             VStack{
                 TextField("   Title", text: $noteName)
                     .padding()
@@ -44,7 +44,7 @@ struct NewNoteView: View {
                 .disabled(note.isEmpty)
             }
             .navigationTitle("New Note")
-        }
+//        }
     }
     func addingTask(){
         let newNote: Note = Note(title: noteName, content: note)
